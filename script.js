@@ -1,61 +1,50 @@
-function clearErrors(){
+const item = document.querySelector('#item')
+const toDoBox = document.querySelector('#to-do-box')
+let editButtons = document.querySelectorAll('.edit');
 
-    errors = document.getElementsByClassName('formerror');
-    for(let item of errors)
-    {
-        item.innerHTML = "";
+
+item.addEventListener(
+    "keyup",
+    function(event){
+        if (event.key == "Enter"){
+            addToDo(this.value)
+            this.value = ""
+            
+            
+        }
+        
     }
+    
+    
+)
+
+const addToDo =(item) => {
+
+    const listItem = document.createElement("li");
+    listItem.innerHTML = `  ${item}
+    <i class="fas fa-times"></i>
+    `;
+
+      listItem.addEventListener(
+        "click",
+        function(){
+            this.classList.toggle("done")
+           
+            
+        }
+      )
+      listItem.querySelector("i").addEventListener(
+        "click",
+        function(){
+            listItem.remove()
+           
+        }
+      )
+    toDoBox.appendChild(listItem)
+
+}  
 
 
-}
-function seterror(id, error){
-    //sets error inside tag of id 
-    element = document.getElementById(id);
-    element.getElementsByClassName('formerror')[0].innerHTML = error;
+  
 
-}
 
-function validateForm(){
-    var returnval = true;
-    clearErrors();
-
-    //perform validation 
-    var name = document.forms['myForm']["fname"].value;
-    if (name.length<5){
-        seterror("name", "*Length of name is too short");
-        returnval = false;
-    }
-
-    if (name.length == 0){
-        seterror("name", "*Length of name cannot be zero!");
-        returnval = false;
-    }
-
-    var email = document.forms['myForm']["femail"].value;
-    if (email.length>15){
-        seterror("email", "*Email length is too long");
-        returnval = false;
-    }
-
-    var phone = document.forms['myForm']["fphone"].value;
-    if (phone.length != 10){
-        seterror("phone", "*Phone number should be of 10 digits!");
-        returnval = false;
-    }
-
-    var password = document.forms['myForm']["fpass"].value;
-    if (password.length < 6){
-
-         // to allow only those validate
-        seterror("pass", "*Password should be atleast 6 characters long!");
-        returnval = false;
-    }
-
-    var cpassword = document.forms['myForm']["fcpass"].value;
-    if (cpassword != password){
-        seterror("cpass", "*Password and Confirm password should match!");
-        returnval = false;
-    }
-
-    return returnval;
-}
