@@ -1,50 +1,25 @@
-const item = document.querySelector('#item')
-const toDoBox = document.querySelector('#to-do-box')
-let editButtons = document.querySelectorAll('.edit');
+var dest = new Date("dec31 , 2023 24:00:00").getTime();
+
+var x = setInterval(function() {
 
 
-item.addEventListener(
-    "keyup",
-    function(event){
-        if (event.key == "Enter"){
-            addToDo(this.value)
-            this.value = ""
-            
-            
-        }
-        
-    }
-    
-    
-)
 
-const addToDo =(item) => {
+var now = new Date().getTime();
 
-    const listItem = document.createElement("li");
-    listItem.innerHTML = `  ${item}
-    <i class="fas fa-times"></i>
-    `;
+var diff = dest-now ;
 
-      listItem.addEventListener(
-        "click",
-        function(){
-            this.classList.toggle("done")
-           
-            
-        }
-      )
-      listItem.querySelector("i").addEventListener(
-        "click",
-        function(){
-            listItem.remove()
-           
-        }
-      )
-    toDoBox.appendChild(listItem)
+var days = Math.floor(diff / (1000*60*60*24));
 
-}  
+var hours = Math.floor((diff % (1000*60*60*24))/(1000*60*60));
 
 
-  
+var min = Math.floor((diff%(1000*60*60))/(1000*60));
 
 
+var sec = Math.floor((diff%(1000*60))/1000);
+
+document.getElementById("demo").innerHTML = days + 'd, ' +  hours + "hrs: " + min + "m: " + sec + "s "
+
+
+
+}, 1000); 

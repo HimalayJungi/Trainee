@@ -1,70 +1,97 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Nunito', sans-serif;
+
 }
 
-main{
-    width: 100%;
+div{
     height: 100vh;
-    background-color: #3498db;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
-.box{
+p{
+    height: 100px;
     width: 700px;
-    min-height: 500px;
-    background-color: white;
-    border-radius: 5px;
-    padding: 15px;
-}
-
-#item{
-    width: 100%;
-    padding: 10px;
-    width: 100%;
-    border: 0;
-    outline: 0;
-    box-shadow: 0px 0px 2px gray;
-    font-weight: bold;
-    display: block;
-}
-
-#to-do-box {
-    list-style: none;
-    margin-top: 20px;
-}
-
-#to-do-box li{
-    background-color: #2c3e50;
+    background: rgba(0,0,0,0.5);
+    
     color: white;
-    padding: 10px;
-    border-radius: 2px;
-    position: relative;
-    padding-right:  30px;
-    text-align: justify;
-    margin-top: 10px;
-    user-select: none;
-
+    line-height: 100px;
+    text-align: center;
+    font-size: 60px;
+    box-shadow: 1px 1px 0px #000,   
+    2px 2px 0px #000,
+    3px 3px 0px #000,
+    4px 4px 0px #000
+    ;
 }
 
-#to-do-box li i{
+.wrapper {
     position: absolute;
-    right: 10px;
-    top: 10px;
-}
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: 16px;
+  }
+  .heading {
+    text-align: center;
+    margin-bottom: 4em;
+  }
+  .heading h1 {
+    text-shadow: var(--color-shadow);
+    font-size: 6.2em;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+  }
 
-.done{
-    text-decoration: line-through;
-    color: black;
-    background-color: #95a5a6 !important;
-}
+  body {
+    background: url(background-img.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .wrapper {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-size: 16px;
+  }
+  .heading {
+    text-align: center;
+    margin-bottom: 4em;
+  }
+  .heading h1 {
+    text-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    font-size: 6.2em;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: white;
+    padding-bottom: 5px;
+  }
+  .heading h3 {
+    font-size: 1.6em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    padding: 8px 30px;
+    display: inline-block;
+    color: white;
+    
+  }
 
 
-   
+
+
 
 
