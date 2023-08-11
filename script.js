@@ -1,22 +1,28 @@
-$(function(){
-    $.getJSON('https://ipapi.co/json/', function(data){
-        console.log(data);
-        $("#mydata").html(data.ip);
-        $("#city").html(data.city);
-        $("#region").html(data.region);
-        $("#country").html(data.country);
-        $("#postal_code").html(data.postal);
-        $("#latitude").html(data.latitude);
-        $("#longitude").html(data.longitude);
-        $("#timezone").html(data.timezone);
-        $("#currency").html(data.currency);
+$(document).ready(function(){
+
+    $('.buttons').click(function(){
+
+        $(this).addClass('active').siblings().removeClass('active');
+
+        var filter = $(this).attr('data-filter')
+
+        if(filter == 'all'){
+            $('.image').show(400);
+        }else{
+            $('.image').not('.'+filter).hide(200);
+            $('.image').filter('.'+filter).show(400);
+        }
+
     });
+
+    $('.gallery').magnificPopup({
+
+        delegate:'a',
+        type:'image',
+        gallery:{
+            enabled:true
+        }
+
+    });
+
 });
-
-
-
-
-
-
-
-
